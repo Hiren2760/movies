@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/thumbProdCompany"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance50" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thumbProdCompany"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Altitude Film Entertainment"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

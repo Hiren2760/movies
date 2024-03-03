@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="?actionBarItemBackground"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/txtTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:text="Movie Details"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/posterImage"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#efefef"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance12" />
+
+                <TextView
+                    android:id="@+id/txtUserScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="User\nScore"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/rlRatings"
+                    app:layout_constraintStart_toEndOf="@id/rlRatings"
+                    app:layout_constraintTop_toTopOf="@id/rlRatings" />
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Star wars: The Rise of Skywalker (2019)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/posterImage"
+                    app:layout_constraintTop_toTopOf="@id/posterImage" />
+
+                <TextView
+                    android:id="@+id/txtReleaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="12/20/2019"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/posterImage"
+                    app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+                <TextView
+                    android:id="@+id/txtGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Sci-fi, Fantasy, Action, Adventure"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/posterImage"
+                    app:layout_constraintTop_toBottomOf="@id/txtReleaseDate" />
+
+                <TextView
+                    android:id="@+id/txtOverview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/posterImage"
+                    app:layout_constraintTop_toBottomOf="@id/txtGenres" />
+
+                <RelativeLayout
+                    android:id="@+id/rlRatings"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@id/posterImage"
+                    app:layout_constraintTop_toBottomOf="@id/posterImage">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/circleBG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@color/color_primary"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance50" />
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/pbRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminate="false"
+                        android:progress="50"
+                        android:src="@color/color_primary"
+                        app:indicatorColor="@color/white"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance50"
+                        app:trackColor="#ACACAC"
+                        app:trackCornerRadius="2dp"
+                        app:trackThickness="3dp" />
+
+                    <TextView
+                        android:id="@+id/txtRatingPerc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="91%"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtProductionCompanies"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Production companies"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlRatings" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProductionCompanies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/txtProductionCompanies"
+                    app:spanCount="3"
+                    tools:listitem="@layout/list_item_prod_companies" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
